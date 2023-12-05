@@ -1,3 +1,1 @@
-# ExpenceManagementSystem
-# Please follow this code 
-# All Project are Master Brunch
+# ExpenceManagementSystem All Project are Master Brunch
