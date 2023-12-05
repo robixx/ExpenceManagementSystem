@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - ExpenceManagementSystem</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link href="~/css/sidebars.css" rel="stylesheet" />
+    <link href="~/css/all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/ExpenceManagementSystem.styles.css" asp-append-version="true" />
+    <meta name="theme-color" content="#7952b3">
+      <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+      #menucolor{
+            background-color: #d0d7df !important;
+      }
+      
+    </style>
+    <link href="~/css/customdashborad.css" rel="stylesheet" />
+    <script src="~/js/all.min.js"></script>
+</head>
+<body>     
+    @* ----------------------Start Header Section----------------------- *@
+    <header class="navbar navbar-light sticky-top bg-white flex-md-nowrap p-2 mb-3 shadow customheadgrid" >
+        <a class=" col-md-3 col-lg-2 me-0 px-3 text-uppercase" href="#" style=" font-weight:bold; color:white; text-decoration:none; margin-left:20px;font-size:20px">Expence</a>
+        <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>        
+        <div class="navbar-nav">
+            <div class="nav-item text-nowrap">
+                <a class="nav-link px-3" href="#">Sign out</a>
+            </div>
+        </div>
+    </header>
+    @* ----------------------End Header Section----------------------- *@
+    @* ----------------------Start Siderbar Section----------------------- *@
+    <div class="container-fluid" >
+        <div class="row">
+            <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse customheadgrid">
+                <div class="position-sticky pt-3">
+                    <div class="flex-column mb-auto mt-2" style="margin-left:35px;font-family:Great Vibes,cursive;"><h4>Expence Management</h4> </div><hr />
+                    <ul class=" nav nav-pills flex-column mb-auto" style="font-size:14pt;">
+                        <li class="nav-item ">
+                            <a class="nav-link active  btn-custom" aria-current="page" href="@Url.Action("DashBoard", "DashBoard", new { Area = "Admin" })">
+                                <i  class=" bi me-2 fa-solid fa-house"></i>
+                                Dashboard
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link btn-custom" href="#">
+                                <i class=" bi me-2 fa-solid fa-money-bill-trend-up"></i>                               
+                                Total Earn
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link btn-custom" href="@Url.Action("CategoryList", "Category", new { Area = "Admin" })">
+                                <i class=" bi me-2 fa-solid fa-layer-group"></i>
+                                Category
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link btn-custom" href="#">
+                                <i class="bi me-2 fa-solid fa-comments-dollar"></i>
+                                Expence
+                            </a>
+                        </li>                        
+                        <li class="nav-item">
+                            <a class="nav-link btn-custom" href="#">
+                                <i class="bi me-2 fa-solid fa-chart-simple"></i>
+                                Reports
+                            </a>
+                        </li>                       
+                    </ul>
+                </div>
+            </nav>
+            @* ----------------------End Siderbar Section----------------------- *@
+            <main class="col-md-9 ms-sm-auto col-lg-10">               
+                    @RenderBody()           
+            </main>
+            <footer class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center  shadow footer text-muted">
+                <div class="container">
+                    &copy; @DateTime.Now - ExpenceManagementSystem
+                </div>
+            </footer>
+
+        </div>
+    </div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/sidebars.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
